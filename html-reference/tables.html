@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tables page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1> This is the table data</h1>
+
+    <h2>Table 1</h2>
+
+    <table>
+
+        <caption>Comparison of Programming Languages</caption>
+        
+        <colgroup>
+            <col span="1" style="background-color: lightblue;">
+            <col span="1" style="background-color: lightgreen;">
+            <col span="1">
+        </colgroup>
+        
+        <thead>
+            <tr>
+                <th id="lang" scope="col">Language</th>
+                <th id="year" scope="col">First Released</th>
+                <th id="use" scope="col">Primary Use</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr>
+                <th id="python" scope="row">Python</th>
+                <td headers="python year">1991</td>
+                <td headers="python use">Data science, AI, scripting</td>
+            </tr>
+            
+            <tr>
+                <th id="cpp" scope="row">C++</th>
+                <td headers="cpp year">1985</td>
+                <td headers="cpp use">Systems programming, game engines</td>
+            </tr>
+            
+            <tr>
+                <th id="javascript" scope="row">JavaScript</th>
+                <td headers="javascript year">1995</td>
+                <td headers="javascript use">Web development</td>
+            </tr>
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <td>Source:  </td>
+                <td>General programming  </td>
+                <td>language history references.</td>
+            </tr>
+        </tfoot>
+        
+    </table>
+
+
+
+
+
+    <h2>Table 2</h2>
+
+    <table>
+
+        <caption>Computer Science Course Schedule</caption>
+        
+        <thead>
+            <tr>
+                <th id="day" scope="col">Day</th>
+                <th id="morning" scope="col">Morning</th>
+                <th id="afternoon" scope="col">Afternoon</th>
+                <th id="evening" scope="col">Evening</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+        
+            <tr>
+                <th id="mon" scope="row">Monday</th>
+                <td headers="mon morning">Algorithms</td>
+                <td headers="mon afternoon" rowspan="2">Operating Systems</td>
+                <td headers="mon evening">Study Session</td>
+            </tr>
+            
+            <tr>
+                <th id="tue" scope="row">Tuesday</th>
+                <td headers="tue morning">Machine Learning</td>
+                <td headers="tue evening">Project Work</td>
+            </tr>
+            
+            <tr>
+                <th id="wed" scope="row">Wednesday</th>
+                <td headers="wed morning afternoon" colspan="2">Artificial Intelligence Lab</td>
+                <td headers="wed evening">Homework</td>
+            </tr>
+            
+            <tr>
+                <th id="thu" scope="row">Thursday</th>
+                <td headers="thu morning">Computer Networks</td>
+                <td headers="thu afternoon">Databases</td>
+                <td headers="thu evening">Reading</td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <td colspan="4">Schedule subject to change.</td>
+            </tr>
+        </tfoot>
+        
+    </table>
+    
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .fake-marquee {
+            overflow: hidden;
+            white-space: nowrap;
+            box-sizing: border-box;
+        }
+
+        .fake-marquee span {
+            display: inline-block;
+            padding-left: 100%;
+            animation: scroll-left 10s linear infinite;
+        }
+
+        @keyframes scroll-left {
+            from { transform: translateX(0); }
+            to { transform: translateX(-100%); }
+        }
+
+        .fake-blink {
+            animation: blink 1s steps(2, start) infinite;
+        }
+
+        @keyframes blink {
+            to { visibility: hidden; }
+        }
+    </style>
+</head>
+
+    
+<body>
+
+    <!--
+        Validator complaints include: font, center, big, tt, strike, acronym,
+        marquee, and blink/bgsound.
+    -->
+
+    <h1>Deprecated & Historical HTML Elements</h1>
+    <p>
+        This page demonstrates older or obsolete HTML elements and contrasts them with modern HTML5/CSS approaches.
+    </p>
+
+    <section>
+        <h2>&lt;font&gt;</h2>
+        <!--
+            What it did:
+            Changed font face, size, and color directly in HTML.
+
+            What to use instead:
+            CSS properties like color, font-family, and font-size.
+        -->
+        <font color="red" size="5" face="Georgia">This text uses the deprecated font element.</font>
+
+        <p>
+            Modern replacement:
+            <span style="color: red; font-size: 1.5rem; font-family: Georgia, serif;">
+                This text uses CSS instead.
+            </span>
+        </p>
+    </section>
+
+    <section>
+        <h2>&lt;center&gt;</h2>
+        <!--
+            What it did:
+            Centered its contents horizontally.
+
+            What to use instead:
+            CSS text-align: center; or layout tools like flexbox/grid.
+        -->
+        <center>This text is centered with the deprecated center element.</center>
+
+        <p text-align: center;>
+            Modern replacement: this is centered with CSS.
+        </p>
+    </section>
+
+    <section>
+        <h2>&lt;big&gt;</h2>
+        <!--
+            What it did:
+            Increased text size relative to surrounding text.
+
+            What to use instead:
+            CSS font-size.
+        -->
+        <p>Normal text and <big>deprecated big text</big>.</p>
+
+        <p font-size: 0.5rem;>
+            Modern replacement: normal text and <span font-size: 1.5rem;>CSS-sized larger text</span>.
+        </p>
+    </section>
+
+    <section>
+        <h2>&lt;small&gt; (still valid, included for contrast)</h2>
+        <!--
+            What it did:
+            Indicates side comments or fine print.
+
+            What to use:
+            small is still valid HTML5 for fine print / side comments.
+        -->
+        <p>Chicken feed available while supplies last. <small>Terms and conditions apply.</small></p>
+    </section>
+
+    <section>
+        <h2>&lt;tt&gt;</h2>
+        <!--
+            What it did:
+            Rendered text in teletype / monospace style.
+
+            What to use instead:
+            code
+        -->
+        <p><tt>Deprecated teletype text</tt></p>
+
+        <p> Modern replacement: <code>code</code> for code semantics</p>
+    </section>
+
+    <section>
+        <h2>&lt;strike&gt;</h2>
+        <!--
+            What it did:
+            Drew a line through text.
+
+            What to use instead:
+            s for no-longer-accurate text, or del for deleted text.
+        -->
+        <p><strike>Old chicken pricing</strike></p>
+
+        <p>
+            Modern replacement: <s>outdated chicken pricing</s> or <del datetime="2026-03-09">deleted pricing</del>.
+        </p>
+    </section>
+
+    <section>
+        <h2>&lt;acronym&gt;</h2>
+        <!--
+            What it did:
+            Marked up acronyms and abbreviations.
+
+            What to use instead:
+            abbr, since acronym was removed for causing confusion.
+        -->
+        <p><acronym title="HyperText Markup Language">HTML</acronym> is shown with the deprecated acronym element.</p>
+
+        <p>
+            Modern replacement:
+            <abbr title="HyperText Markup Language">HTML</abbr>
+        </p>
+    </section>
+
+    <section>
+        <h2>&lt;bgsound&gt;</h2>
+        <!--
+            What it did:
+            Played background sound automatically, mainly in old Internet Explorer. Does not work anymore
+
+            What to use instead:
+            audio, ideally with controls and user consent / JavaScript control.
+        -->
+        <bgsound src="assets/sample.mp3" loop="infinite">
+
+        <p>
+            If this does anything in your browser, that would be surprising.
+            It was an old IE-only mechanism for background audio.
+        </p>
+
+        <p>
+            Modern replacement:
+            <audio controls>
+                <source src="assets/sample.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </p>
+    </section>
+
+    <section>
+        <h2>&lt;blink&gt;</h2>
+        <!--
+            What it did:
+            Tried to make text blink on and off.
+
+            What to use instead:
+            Usually nothing; blinking is poor for accessibility.
+            If a visual effect is absolutely necessary, CSS animation can imitate it.
+        -->
+        <p><blink>This will not blink in modern browsers.</blink></p>
+
+        <p>
+            CSS imitation only:
+            <span class="fake-blink">This is a CSS-based blink effect.</span>
+        </p>
+    </section>
+
+    <section>
+        <h2>&lt;marquee&gt;</h2>
+        <!--
+            What it did:
+            Scrolled text automatically across the screen.
+
+            What to use instead:
+            CSS animations or JavaScript, if motion is truly needed.
+        -->
+        <marquee behavior="scroll" direction="left">
+            Mrs. Chicken demands premium grain immediately.
+        </marquee>
+
+        <p class="replacement fake-marquee">
+            <span>Modern replacement: CSS animation can create scrolling text without marquee.</span>
+        </p>
+    </section>
+
+</body>
+</html>

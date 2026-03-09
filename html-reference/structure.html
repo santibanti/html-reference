@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structure HTML examples</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <main>
+        <h1>Mrs. Chicken News</h1>
+        <nav aria-label="Page table of contents">
+            <h2>Contents</h2>
+            <ul>
+                <li><a href="#article1">Mrs. Chicken Weekly Report</a></li>
+                <li><a href="#section-habits">Habits</a></li>
+                <li><a href="#section-tools">Tools</a></li>
+                <li><a href="#section-faq">FAQ</a></li>
+            </ul>
+        </nav>
+    
+        <article id="article1">
+    
+            <header>
+                <h2>Mrs. Chicken Weekly Report</h2>
+                <p>A self-contained article about Mrs. Chicken’s daily routine, favorite tools, and observations from the coop.</p>
+            </header>
+    
+            <section id="section-habits">
+                <h2>Daily Habits</h2>
+                <p>Mrs. Chicken maintains a strict morning routine and an even stricter policy on premium feed quality.</p>
+    
+                <h3>Morning Routine</h3>
+                <ul>
+                    <li>Wake up at sunrise</li>
+                    <li>
+                        Inspect the coop
+                        <ul>
+                            <li>
+                                Check nesting boxes
+                                <ul>
+                                    <li>Count eggs carefully</li>
+                                    <li>Rearrange straw if needed</li>
+                                </ul>
+                            </li>
+                            <li>Inspect the water dish</li>
+                        </ul>
+                    </li>
+                    <li>Demand breakfast immediately</li>
+                </ul>
+    
+                <h3>Preferred Task Order</h3>
+                <ol start="5" reversed>
+                    <li value="5">Cluck at the gardener</li>
+                    <li value="4">Patrol the fence line</li>
+                    <li value="3">Review feed supplies</li>
+                    <li value="2">Supervise egg production</li>
+                    <li value="1">Take a nap in the sun</li>
+                </ol>
+            </section>
+    
+            <section id="section-tools">
+                <h2>Important Equipment</h2>
+                <p>The following terms describe important items used in Mrs. Chicken’s operation.</p>
+    
+                <dl>
+                    <dt>Coop</dt>
+                    <dd>The enclosed structure where Mrs. Chicken sleeps and stores her eggs.</dd>
+    
+                    <dt>Perch</dt>
+                    <dd>A raised bar used for resting above ground level.</dd>
+    
+                    <dt>Feed Scoop</dt>
+                    <dd>A handheld tool used to distribute grain efficiently and dramatically.</dd>
+                </dl>
+    
+                <details>
+                    <summary>Read the official coop maintenance note</summary>
+                    <p>All feed containers should remain sealed, dry, and suspiciously well guarded from pigeons.</p>
+                </details>
+    
+                <menu>
+                    <li><button type="button">Print Report</button></li>
+                    <li><button type="button">Save Notes</button></li>
+                    <li><button type="button" onclick="document.getElementById('coopDialog').showModal()">Open Dialog</button></li>
+                </menu>
+    
+                <dialog id="coopDialog">
+                    <p>Mrs. Chicken would like to remind you that cracked corn is not a complete meal.</p>
+                    <button type="button" onclick="document.getElementById('coopDialog').close()">Close</button>
+                </dialog>
+            </section>
+    
+            <section id="section-faq">
+                <h2>Frequently Asked Questions</h2>
+    
+                <h3>Why is Mrs. Chicken so demanding?</h3>
+                <p>Because excellence in poultry management requires standards.</p>
+    
+                <h3>Does she accept schedule changes?</h3>
+                <p>Only under protest.</p>
+    
+                <h3>What about rainy days?</h3>
+                <p>Rainy days are acceptable if snacks are increased proportionally.</p>
+    
+                <h3>Final note</h3>
+                <p>All barnyard policies remain subject to revision by Mrs. Chicken alone.</p>
+            </section>
+    
+            <aside>
+                <h2>Sidebar Note</h2>
+                <p>This aside contains tangential information related to the article but not part of its main flow.</p>
+                <p>For example, Mrs. Chicken’s rival in the neighboring yard is reportedly a fried duck fast food chain named Bernard's</p>
+            </aside>
+    
+            <div class="report-note">
+                <p>This generic <code>&lt;div&gt;</code> is used sparingly as a simple block-level container for styling or grouping.</p>
+            </div>
+    
+            <footer>
+                <p>Article written by the Coop Observation Society.</p>
+                <p>Published March 2026.</p>
+            </footer>
+    
+        </article>
+    
+        <template id="noteTemplate">
+            <p>This content is stored in a template and does not render unless activated with JavaScript.</p>
+        </template>
+    
+        <p><code>&lt;slot&gt;</code> is only meaningful inside Shadow DOM. Example placeholder: <slot>This fallback text appears in normal HTML because no Shadow DOM is using the slot.</slot></p>
+    
+    </main>
+</body>
+</html>

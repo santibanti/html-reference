@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1> Form submission example</h1>
+
+    <form action="#" method="post" enctype="multipart/form-data" novalidate>
+
+        <fieldset>
+            <legend>Account Information</legend>
+    
+            <p>
+                <label for="fullname">Full Name:</label>
+                <input
+                    type="text"
+                    id="fullname"
+                    name="fullname"
+                    placeholder="Enter your full name"
+                    required
+                    minlength="3">
+            </p>
+    
+            <p>
+                <label for="email">Email Address:</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email">
+            </p>
+    
+            <p>
+                <label for="password">Create Password:</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    autocomplete="new-password">
+            </p>
+        </fieldset>
+    
+        <fieldset>
+            <legend>Preferences and Scheduling</legend>
+    
+            <p>
+                <label for="credits">Desired Course Units:</label>
+                <input
+                    type="number"
+                    id="credits"
+                    name="credits"
+                    min="1"
+                    max="21"
+                    step="1">
+            </p>
+    
+            <p>
+                <label for="satisfaction">Satisfaction Level:</label>
+                <input
+                    type="range"
+                    id="satisfaction"
+                    name="satisfaction"
+                    min="0"
+                    max="10"
+                    value="5"
+                    oninput="satisfactionOutput.value = satisfaction.value">
+                <output id="satisfactionOutput" for="satisfaction">5</output>
+            </p>
+    
+            <p>
+                <label for="startdate">Start Date:</label>
+                <input
+                    type="date"
+                    id="startdate"
+                    name="startdate">
+            </p>
+    
+            <p>
+                <label for="meetingtime">Meeting Time:</label>
+                <input
+                    type="time"
+                    id="meetingtime"
+                    name="meetingtime">
+            </p>
+    
+            <p>
+                <label for="appointment">Appointment:</label>
+                <input
+                    type="datetime-local"
+                    id="appointment"
+                    name="appointment">
+            </p>
+    
+            <p>
+                <label for="gradmonth">Graduation Month:</label>
+                <input
+                    type="month"
+                    id="gradmonth"
+                    name="gradmonth">
+            </p>
+    
+            <p>
+                <label for="projectweek">Project Week:</label>
+                <input
+                    type="week"
+                    id="projectweek"
+                    name="projectweek">
+            </p>
+        </fieldset>
+
+
+        <fieldset>
+            <legend>Additional Form Controls</legend>
+    
+            <input type="hidden" id="formid" name="formid" value="student-form-01">
+
+            <p>
+                <label for="favcolor">Favorite Color:</label>
+                <input type="color" id="favcolor" name="favcolor" value="#3366cc">
+            </p>
+    
+            <p>
+                <label for="documents">Upload Documents:</label>
+                <input
+                    type="file"
+                    id="documents"
+                    name="documents"
+                    accept=".pdf,.doc,.docx,.png,.jpg"
+                    multiple>
+            </p>
+    
+            <p>Skills:</p>
+            <p>
+                <label for="python">Python</label>
+                <input type="checkbox" id="python" name="skills" value="python" checked> 
+                
+                <label for="java">Java</label>
+                <input type="checkbox" id="java" name="skills" value="java">
+                
+                <label for="cpp">C++</label>
+                <input type="checkbox" id="cpp" name="skills" value="cpp">
+            </p>
+    
+            <p>Class Standing:</p>
+            <p>
+                <input type="radio" id="freshman" name="standing" value="freshman">
+                <label for="freshman">Freshman</label>
+    
+                <input type="radio" id="sophomore" name="standing" value="sophomore">
+                <label for="sophomore">Sophomore</label>
+    
+                <input type="radio" id="junior" name="standing" value="junior">
+                <label for="junior">Junior</label>
+    
+                <input type="radio" id="senior" name="standing" value="senior">
+                <label for="senior">Senior</label>
+            </p>
+    
+            <p>
+                <label for="site-search">Search Site:</label>
+                <input type="search" id="site-search" name="site-search" placeholder="Search here">
+            </p>
+    
+            <p>
+                <label for="phone">Phone Number:</label>
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                    placeholder="123-456-7890">
+            </p>
+    
+            <p>
+                <label for="website">Portfolio URL:</label>
+                <input type="url" id="website" name="website" placeholder="https://example.com">
+            </p>
+    
+            <p>
+                <label for="bio">Short Bio:</label><br>
+                <textarea id="bio" name="bio" rows="5" cols="40" maxlength="200" placeholder="Write a short bio..."></textarea>
+            </p>
+    
+            <p>
+                <label for="major">Choose a Major:</label>
+                <select id="major" name="major">
+                    <option value="">--Select a major--</option>
+                    <option value="cs">Computer Science</option>
+                    <option value="math">Mathematics</option>
+                    <option value="physics">Physics</option>
+                    <option value="engineering">Engineering</option>
+                </select>
+            </p>
+    
+            <p>
+                <input type="submit" value="Submit Form">
+                <input type="reset" value="Reset Form">
+                <input type="button" value="Click Me" onclick="alert('Button clicked!')">
+            </p>
+    
+            <p>
+                <input
+                    type="image"
+                    src="assets/submit-button.png"
+                    alt="Submit as image button"
+                    width="120"
+                    height="40">
+            </p>
+    
+        </fieldset>
+
+        <fieldset>
+            <legend>Mrs. Chicken's Deluxe Preference Form</legend>
+    
+            <p>
+                <label for="chickenname">Chicken Name:</label>
+                <input
+                    type="text"
+                    id="chickenname"
+                    name="chickenname"
+                    placeholder="Enter chicken name"
+                    autofocus
+                    tabindex="1">
+            </p>
+    
+            <p>
+                <label for="coopid">Coop ID:</label>
+                <input
+                    type="text"
+                    id="coopid"
+                    name="coopid"
+                    value="COOP-2026-01"
+                    readonly
+                    tabindex="2">
+            </p>
+    
+            <p>
+                <label for="secretcode">Secret Hatchery Code:</label>
+                <input
+                    type="text"
+                    id="secretcode"
+                    name="secretcode"
+                    value="CLASSIFIED"
+                    disabled
+                    tabindex="3">
+            </p>
+    
+            <p>
+                <label for="favoritefeed">Favorite Feed Brand:</label>
+                <input
+                    type="text"
+                    id="favoritefeed"
+                    name="favoritefeed"
+                    list="feed-options"
+                    tabindex="4">
+            </p>
+    
+            <datalist id="feed-options">
+                <option value="Golden Grain Mix"></option>
+                <option value="Premium Corn Delight"></option>
+                <option value="Organic Seed Supreme"></option>
+                <option value="Mrs. Chicken's Secret Blend"></option>
+            </datalist>
+    
+            <p>
+                <label for="eggplan">Choose an Egg Production Plan:</label>
+                <select id="eggplan" name="eggplan" tabindex="5">
+                    <optgroup label="Standard Plans">
+                        <option value="starter">Starter Nest</option>
+                        <option value="balanced" selected>Balanced Basket</option>
+                        <option value="premium">Premium Poultry Plan</option>
+                    </optgroup>
+                    <optgroup label="Luxury Plans">
+                        <option value="golden">Golden Egg Elite</option>
+                        <option value="diamond">Diamond Hen Experience</option>
+                    </optgroup>
+                </select>
+            </p>
+    
+            <p>
+                <label for="coopcomfort">Coop Comfort Level:</label>
+                <meter
+                    id="coopcomfort"
+                    min="0"
+                    max="100"
+                    value="72"
+                    low="30"
+                    high="80"
+                    optimum="90">
+                    72 out of 100
+                </meter>
+            </p>
+    
+            <p>
+                <label for="eggprogress">Egg Packing Progress:</label>
+                <progress id="eggprogress" value="65" max="100">65%</progress>
+            </p>
+    
+            <p>
+                <label for="incubationprogress">Incubation Progress:</label>
+                <progress id="incubationprogress">Loading...</progress>
+            </p>
+    
+            <p>
+                <button type="submit" tabindex="6">Submit Chicken Form</button>
+                <button type="reset" tabindex="7">Reset Form</button>
+                <button type="button" tabindex="8" onclick="alert('Mrs. Chicken says cluck wisely!')">
+                    Surprise Button
+                </button>
+            </p>
+    
+        </fieldset>
+    
+    </form>
+
+</body>
+</html>

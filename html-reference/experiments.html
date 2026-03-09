@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Experiments</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        header, main, footer {
+            width: min(1100px, 92%);
+            margin: 0 auto;
+        }
+
+        header {
+            padding: 2rem 0 1rem;
+        }
+
+        main {
+            padding-bottom: 3rem;
+        }
+
+
+        .intro {
+            color: var(--muted);
+            max-width: 70ch;
+        }
+
+
+        nav ul {
+            margin: 0.5rem 0 0;
+            padding-left: 1.25rem;
+        }
+
+        .experiment {
+            margin: 2rem 0;
+            padding: 1.25rem;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        }
+
+        .label {
+            display: inline-block;
+            padding: 0.3rem 0.6rem;
+            margin-bottom: 0.75rem;
+            background: rgba(142,246,209,0.12);
+            border: 1px solid rgba(142,246,209,0.35);
+            border-radius: 999px;
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        code {
+            background: rgba(255,255,255,0.06);
+            padding: 0.1rem 0.35rem;
+            border-radius: 6px;
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        .weird-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 1rem;
+        }
+
+        @media (max-width: 850px) {
+            .weird-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Experiment 1 */
+        .labyrinth details {
+            margin: 0.5rem 0 0.5rem 1rem;
+            padding-left: 0.8rem;
+            border-left: 2px solid #4f596f;
+        }
+
+        .labyrinth summary {
+            cursor: pointer;
+        }
+
+        .labyrinth .treasure {
+            padding: 0.75rem;
+            border: 1px dashed var(--accent2);
+            border-radius: 10px;
+            background: rgba(255, 209, 102, 0.08);
+        }
+
+        /* Experiment 2 */
+        .dashboard {
+            background: #020403;
+            color: #89ff90;
+            font-family: monospace;
+            border: 1px solid #2c6b35;
+            border-radius: 12px;
+            padding: 1rem;
+        }
+
+        .dashboard h3,
+        .dashboard p {
+            margin: 0.4rem 0;
+        }
+
+        .dashboard .blink {
+            animation: blink 0.8s steps(2, start) infinite;
+        }
+
+        .dashboard .ticker {
+            overflow: hidden;
+            white-space: nowrap;
+            border: 1px dashed #89ff90;
+            padding: 0.4rem;
+            margin: 0.8rem 0;
+        }
+
+        .dashboard .ticker span {
+            display: inline-block;
+            padding-left: 100%;
+            animation: slide 12s linear infinite;
+        }
+
+        .dashboard meter,
+        .dashboard progress {
+            width: 100%;
+            margin: 0.35rem 0 0.8rem;
+        }
+
+        @keyframes blink {
+            to { visibility: hidden; }
+        }
+
+        @keyframes slide {
+            from { transform: translateX(0); }
+            to { transform: translateX(-100%); }
+        }
+
+        /* Experiment 3 */
+        .form-lab {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .form-lab fieldset {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem;
+        }
+
+        .form-lab label {
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .form-lab input,
+        .form-lab select,
+        .form-lab textarea,
+        .form-lab button {
+            width: 100%;
+            max-width: 100%;
+            padding: 0.65rem;
+            border-radius: 10px;
+            border: 1px solid #535d70;
+            background: #11151e;
+            color: white;
+        }
+
+        .form-lab .inline-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media (max-width: 700px) {
+            .form-lab .inline-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-lab output {
+            display: inline-block;
+            min-width: 2ch;
+            margin-left: 0.5rem;
+            color: var(--accent2);
+            font-weight: bold;
+        }
+
+        .toolbar {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .toolbar button {
+            width: auto;
+            cursor: pointer;
+        }
+
+        dialog {
+            border: none;
+            border-radius: 14px;
+            padding: 1rem 1.25rem;
+            max-width: 32rem;
+        }
+
+        dialog::backdrop {
+            background: rgba(0,0,0,0.55);
+        }
+
+        .ascii {
+            white-space: pre-wrap;
+            font-family: monospace;
+            background: rgba(255,255,255,0.04);
+            padding: 1rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        footer {
+            padding: 0 0 2rem;
+            color: var(--muted);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>HTML Experiments: Break Things, Push Edges, Get Weird</h1>
+        <p class="intro">
+            This page contains three deliberately strange HTML demos. They use native HTML in unusual ways,
+            stretch semantics, abuse widgets, and explore how weird a page can get while still being mostly real HTML.
+        </p>
+
+        <nav aria-label="Experiment navigation">
+            <strong>Experiments on this page</strong>
+            <ul>
+                <li><a href="#experiment-1">Experiment 1: Disclosure Labyrinth</a></li>
+                <li><a href="#experiment-2">Experiment 2: Faux OS Dashboard</a></li>
+                <li><a href="#experiment-3">Experiment 3: Mrs. Chicken Reality Intake Form</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="experiment" id="experiment-1">
+            <span class="label">Experiment 1</span>
+            <h2>Disclosure Labyrinth</h2>
+            <p class="muted">
+                This experiment abuses <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> by turning them into
+                a nested universe, treasure hunt, and collapsible narrative structure.
+            </p>
+
+            <div class="weird-grid">
+                <div class="labyrinth">
+                    <details open>
+                        <summary>Open the universe</summary>
+
+                        <details>
+                            <summary>Enter the galaxy</summary>
+
+                            <details>
+                                <summary>Approach the solar system</summary>
+
+                                <details>
+                                    <summary>Land on the planet</summary>
+
+                                    <details>
+                                        <summary>Walk into the city</summary>
+
+                                        <details>
+                                            <summary>Find the suspicious building</summary>
+
+                                            <details>
+                                                <summary>Find the suspicious door</summary>
+
+                                                <details>
+                                                    <summary>Find the suspicious room</summary>
+
+                                                    <details>
+                                                        <summary>Find the suspicious fridge</summary>
+
+                                                            <details>
+                                                                <summary>Open the fridge of destiny</summary>
+                                                                <div class="treasure">
+                                                                    <p><strong>You found:</strong> one glowing grape, two existential breadcrumbs, and a receipt from 1997.</p>
+                                                                    <p>
+                                                                        This is weird because disclosure widgets are being used as spatial navigation instead of simple FAQ toggles.
+                                                                    </p>
+                                                                </div>
+                                                            </details>
+                                                    </details>
+                                                </details>
+                                            </details>
+                                        </details>
+                                    </details>
+                                </details>
+                            </details>
+                        </details>
+                    </details>
+                </div>
+
+                <aside>
+                    <h3>Why this is weird</h3>
+                    <ul>
+                        <li>It turns native disclosure widgets into level design.</li>
+                        <li>It uses no framework and almost no JavaScript.</li>
+                        <li>It feels interactive even though it is mostly just nested HTML.</li>
+                    </ul>
+
+                    <h3>Edge pushed</h3>
+                    <p>
+                        This takes an accessibility-friendly element and repurposes it into a nested narrative machine.
+                    </p>
+                </aside>
+            </div>
+        </section>
+
+        <section class="experiment" id="experiment-2">
+            <span class="label">Experiment 2</span>
+            <h2>Faux Operating System Dashboard</h2>
+            <p class="muted">
+                This experiment tries to make plain HTML feel like a broken sci-fi terminal using
+                <code>&lt;meter&gt;</code>, <code>&lt;progress&gt;</code>, fake alert text, and a dramatic status layout.
+            </p>
+
+            <div class="dashboard">
+                <h3 class="blink">SYSTEM STATUS: UNSETTLINGLY STABLE</h3>
+                <p>Operator: Mrs. Chicken</p>
+                <p>Reality checksum: 82%</p>
+
+                <div class="ticker">
+                    <span>ALERT • coop morale unstable • duck detected near perimeter • feed purity variance increasing • philosophical egg output exceeds forecast •</span>
+                </div>
+
+                <p>Feed Integrity</p>
+                <meter min="0" max="100" value="41" low="30" high="80" optimum="95">41</meter>
+
+                <p>Egg Packing Progress</p>
+                <progress value="65" max="100">65%</progress>
+
+                <p>Incubation Process</p>
+                <progress>Loading...</progress>
+
+                <details>
+                    <summary>Open suspicious diagnostics</summary>
+                    <ul>
+                        <li>Kernel panic caused by rooster opinions</li>
+                        <li>Fence line interpreted as emotional boundary</li>
+                        <li>Three hay bales now flagged as advisory boards</li>
+                    </ul>
+                </details>
+            </div>
+
+            <div class="ascii" role="img" aria-label="ASCII chicken status card">
+ //\_/\\
+ ( o.o )    SYSTEM OBSERVER UNIT
+  &lt; ^ &gt;     mood: vigilant
+            battery: probably symbolic
+            purpose: unclear but committed
+            </div>
+        </section>
+
+        <section class="experiment" id="experiment-3">
+            <span class="label">Experiment 3</span>
+            <h2>Mrs. Chicken Reality Intake Form</h2>
+            <p class="muted">
+                This experiment abuses forms by turning them into a surreal personality test, control panel,
+                and bureaucratic poultry ritual all at once.
+            </p>
+
+            <form class="form-lab" action="#" method="post" onsubmit="event.preventDefault(); document.getElementById('resultDialog').showModal();">
+                <fieldset>
+                    <legend>Identity and Intent</legend>
+
+                    <div class="inline-row">
+                        <div>
+                            <label for="visitorName">Name of visitor</label>
+                            <input type="text" id="visitorName" name="visitorName" placeholder="Enter your human designation" required>
+                        </div>
+
+                        <div>
+                            <label for="threatLevel">Perceived threat level</label>
+                            <select id="threatLevel" name="threatLevel">
+                                <option value="none">None</option>
+                                <option value="mild">Mildly suspicious</option>
+                                <option value="high">High threat</option>
+                                <option value="corn">Mostly corn-shaped</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="confession">Confession box</label>
+                        <textarea id="confession" name="confession" rows="4" maxlength="220" placeholder="State your intentions toward the coop."></textarea>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Measurements No One Asked For</legend>
+
+                    <div>
+                        <label for="dramaticRange">Dramatic intensity slider</label>
+                        <input
+                            type="range"
+                            id="dramaticRange"
+                            name="dramaticRange"
+                            min="0"
+                            max="10"
+                            value="5"
+                            oninput="dramaticOutput.value = dramaticRange.value">
+                        <output id="dramaticOutput" for="dramaticRange">5</output>
+                    </div>
+
+                    <div class="inline-row">
+                        <div>
+                            <label for="snackColor">Preferred emergency snack color</label>
+                            <input type="color" id="snackColor" name="snackColor" value="#ffd166">
+                        </div>
+
+                        <div>
+                            <label for="arrivalWeek">Week of arrival</label>
+                            <input type="week" id="arrivalWeek" name="arrivalWeek">
+                        </div>
+                    </div>
+
+                    <div class="inline-row">
+                        <div>
+                            <label for="gooseIndex">Goose compatibility index</label>
+                            <input type="number" id="gooseIndex" name="gooseIndex" min="0" max="100" step="1" placeholder="0 to 100">
+                        </div>
+
+                        <div>
+                            <label for="coopSearch">Search the archive for forbidden grain</label>
+                            <input type="search" id="coopSearch" name="coopSearch" placeholder="Search the coop database">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Command Toolbar</legend>
+                    <menu class="toolbar">
+                        <li><button type="submit">Submit to Mrs. Chicken</button></li>
+                        <li><button type="reset">Reset Reality</button></li>
+                        <li><button type="button" onclick="document.getElementById('sideDialog').showModal()">Open Warning</button></li>
+                    </menu>
+                </fieldset>
+            </form>
+
+            <dialog id="sideDialog">
+                <p><strong>Warning:</strong> Excessive confidence around poultry may result in administrative pecking.</p>
+                <button type="button" onclick="document.getElementById('sideDialog').close()">Accept fate</button>
+            </dialog>
+
+            <dialog id="resultDialog">
+                <p><strong>Submission intercepted.</strong> Mrs. Chicken will review your paperwork in approximately 3 to 5 business sunsets.</p>
+                <button type="button" onclick="document.getElementById('resultDialog').close()">Close</button>
+            </dialog>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            These three demos were intentionally designed to be playful, structurally strange, and a little excessive.
+            They experiment with what happens when you use native HTML far outside its usual polite, restrained context.
+        </p>
+    </footer>
+</body>
+</html>
